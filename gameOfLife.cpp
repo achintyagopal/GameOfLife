@@ -36,16 +36,7 @@ void print(ostream& stream, vector<vector<bool>> array){
   for(int i = 0; i < array.size(); i++){
     vector<bool> row = array[i];
     for(int j = 0; j < row.size(); j++){
-      
-      if(row[j] == false){
-	cout << "\033[0m";
-      } else {
-	cout << "\033[31m";
-	cout << "\033[1m";
-      }
-      
-      cout << "\u2588";
-      cout << "\u2588";
+      swap(row[j],i,j);
     }
     cout << "\n";
   }
@@ -61,7 +52,7 @@ int main(int argc, char** argv){
   
   int numRows = w.ws_row - 1;
   int numCols = w.ws_col / 2 - 1;
-  int numRandPts = 1000;
+  int numRandPts = (numRows * numCols) / 6;
   
   vector<vector<bool>> life;
   for(int i = 0; i < numRows; i++){
